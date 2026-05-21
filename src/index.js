@@ -3,10 +3,18 @@ import dotenv from "dotenv";
 dotenv.config({
    path: "./.env"
 });
-// import mongoose from "mongoose";
-// import {DB_NAME} from "./constants"
 import connectDB from "./db/index.js"
 connectDB()
+.then(() => {
+    console.log("DB Connected Successfully")
+})
+.catch((err) => {
+    console.error("DB Connection Failed:", err);
+    process.exit(1);
+})      
+// import mongoose from "mongoose";
+// import {DB_NAME} from "./constants"
+
 // import express from "express"
 // const app = express()
 // (async()=>{
